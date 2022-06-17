@@ -167,3 +167,15 @@ umur (categorical)
 20-30 () -1
 >30 () -2
 
+
+=====/ chi square ====\
+
+RECODE knowledge (Lowest thru 80=1) (80.1 thru Highest=2) INTO know.cat.
+EXECUTE.
+
+CROSSTABS
+  /TABLES=gender BY y.cat
+  /FORMAT=AVALUE TABLES
+  /STATISTICS=CHISQ 
+  /CELLS=COUNT COLUMN 
+  /COUNT ROUND CELL.
